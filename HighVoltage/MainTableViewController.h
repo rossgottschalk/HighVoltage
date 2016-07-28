@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainTableViewController.h
 //  HighVoltage
 //
 //  Created by Ross Gottschalk on 7/28/16.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainTableViewController : UITableViewController
 
 
 @end
-

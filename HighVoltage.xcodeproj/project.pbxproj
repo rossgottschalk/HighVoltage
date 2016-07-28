@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		5BCAA32A1D4A837500C50848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA3291D4A837500C50848 /* main.m */; };
 		5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA32C1D4A837500C50848 /* AppDelegate.m */; };
-		5BCAA3301D4A837500C50848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA32F1D4A837500C50848 /* ViewController.m */; };
 		5BCAA3331D4A837500C50848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAA3311D4A837500C50848 /* Main.storyboard */; };
 		5BCAA3351D4A837500C50848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAA3341D4A837500C50848 /* Assets.xcassets */; };
 		5BCAA3381D4A837500C50848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAA3361D4A837500C50848 /* LaunchScreen.storyboard */; };
+		5BCAA3411D4A8A8C00C50848 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA3401D4A8A8C00C50848 /* MainTableViewController.m */; };
+		5BCAA34A1D4A8F6D00C50848 /* Brain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA3491D4A8F6D00C50848 /* Brain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,14 @@
 		5BCAA3291D4A837500C50848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BCAA32B1D4A837500C50848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5BCAA32C1D4A837500C50848 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5BCAA32E1D4A837500C50848 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5BCAA32F1D4A837500C50848 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5BCAA3321D4A837500C50848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BCAA3341D4A837500C50848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCAA3371D4A837500C50848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BCAA3391D4A837500C50848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BCAA33F1D4A8A8C00C50848 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		5BCAA3401D4A8A8C00C50848 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		5BCAA3481D4A8F6D00C50848 /* Brain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brain.h; sourceTree = "<group>"; };
+		5BCAA3491D4A8F6D00C50848 /* Brain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +63,10 @@
 			children = (
 				5BCAA32B1D4A837500C50848 /* AppDelegate.h */,
 				5BCAA32C1D4A837500C50848 /* AppDelegate.m */,
-				5BCAA32E1D4A837500C50848 /* ViewController.h */,
-				5BCAA32F1D4A837500C50848 /* ViewController.m */,
+				5BCAA33F1D4A8A8C00C50848 /* MainTableViewController.h */,
+				5BCAA3401D4A8A8C00C50848 /* MainTableViewController.m */,
+				5BCAA3481D4A8F6D00C50848 /* Brain.h */,
+				5BCAA3491D4A8F6D00C50848 /* Brain.m */,
 				5BCAA3311D4A837500C50848 /* Main.storyboard */,
 				5BCAA3341D4A837500C50848 /* Assets.xcassets */,
 				5BCAA3361D4A837500C50848 /* LaunchScreen.storyboard */,
@@ -149,7 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BCAA3301D4A837500C50848 /* ViewController.m in Sources */,
+				5BCAA34A1D4A8F6D00C50848 /* Brain.m in Sources */,
+				5BCAA3411D4A8A8C00C50848 /* MainTableViewController.m in Sources */,
 				5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */,
 				5BCAA32A1D4A837500C50848 /* main.m in Sources */,
 			);
@@ -267,6 +273,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.HighVoltage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -278,6 +285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.HighVoltage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -300,6 +308,7 @@
 				5BCAA33E1D4A837500C50848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
