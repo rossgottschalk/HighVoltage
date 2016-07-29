@@ -1,34 +1,26 @@
 //
-//  MainTableViewController.m
+//  ValueTableViewController.m
 //  HighVoltage
 //
-//  Created by Ross Gottschalk on 7/28/16.
+//  Created by Ross Gottschalk on 7/29/16.
 //  Copyright © 2016 The Iron Yard. All rights reserved.
 //
 
-#import "MainTableViewController.h"
 #import "ValueTableViewController.h"
 
-
-@interface MainTableViewController () <UIPopoverPresentationControllerDelegate>
-
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-
-
-
-
+@interface ValueTableViewController ()
 
 @end
 
-@implementation MainTableViewController
+@implementation ValueTableViewController
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"High Voltage";
+    self.remainingValueTypes = [[NSMutableArray alloc] init];
+    [self.remainingValueTypes addObject:@"watts"];
+    [self.remainingValueTypes addObject:@"volts"];
+    [self.remainingValueTypes addObject:@"amps"];
+    [self.remainingValueTypes addObject:@"ohms"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,35 +34,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Action Handlers
-//- (IBAction)addNewValueTypeButton:(UIBarButtonItem *)sender
-//{
-    //[self.valueTypes addObject:@"Hi Tyler"];
-    //[self.tableView reloadData];
-//}
-
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return self.remainingValueTypes.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueTypeCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"valuePopoverCell" forIndexPath:indexPath];
+    NSString *valueTypeNames = self.remainingValueTypes[indexPath.row];
+    cell.textLabel.text = valueTypeNames;
     
     
     // Configure the cell...
-    //cell.textLabel.text = @"Hi Daniel";
     
     return cell;
+}
+
+#pragma UITableView Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//user has selected a row
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //this deselects the row selected. AKA turns off the highlight
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //make the popover vc disappear
 }
 
 
@@ -108,27 +103,14 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
-//In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"ValueTypePopoverSegue"])
-    {
-        
-    
-        
-    }
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
-#pragma mark - UIPopoverPresentationController delegate
-- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
-{
-    return UIModalPresentationNone;
-}
-
-
+*/
 
 @end

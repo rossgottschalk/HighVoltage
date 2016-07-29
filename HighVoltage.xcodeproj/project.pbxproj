@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BAF628E1D4BB8CC0090176A /* ValueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */; };
 		5BCAA32A1D4A837500C50848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA3291D4A837500C50848 /* main.m */; };
 		5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA32C1D4A837500C50848 /* AppDelegate.m */; };
 		5BCAA3331D4A837500C50848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAA3311D4A837500C50848 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BAF628C1D4BB8CC0090176A /* ValueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTableViewController.h; sourceTree = "<group>"; };
+		5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueTableViewController.m; sourceTree = "<group>"; };
 		5BCAA3251D4A837500C50848 /* HighVoltage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighVoltage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCAA3291D4A837500C50848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BCAA32B1D4A837500C50848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 				5BCAA32C1D4A837500C50848 /* AppDelegate.m */,
 				5BCAA33F1D4A8A8C00C50848 /* MainTableViewController.h */,
 				5BCAA3401D4A8A8C00C50848 /* MainTableViewController.m */,
+				5BAF628C1D4BB8CC0090176A /* ValueTableViewController.h */,
+				5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */,
 				5BCAA3481D4A8F6D00C50848 /* Brain.h */,
 				5BCAA3491D4A8F6D00C50848 /* Brain.m */,
 				5BCAA3311D4A837500C50848 /* Main.storyboard */,
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BCAA34A1D4A8F6D00C50848 /* Brain.m in Sources */,
+				5BAF628E1D4BB8CC0090176A /* ValueTableViewController.m in Sources */,
 				5BCAA3411D4A8A8C00C50848 /* MainTableViewController.m in Sources */,
 				5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */,
 				5BCAA32A1D4A837500C50848 /* main.m in Sources */,
