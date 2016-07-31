@@ -14,7 +14,6 @@
 - (void) valueTypeWasChosen: (NSString *) valueTypeChosen;
 
 
-
 @end
 
 @interface MainTableViewController : UITableViewController

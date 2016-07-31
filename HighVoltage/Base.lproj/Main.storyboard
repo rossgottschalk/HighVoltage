@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ValueTypeCell" id="3pp-91-nRc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ValueTypeCell" id="3pp-91-nRc" customClass="CustomTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3pp-91-nRc" id="mkt-xE-8Uu">
@@ -40,6 +40,10 @@
                                         <constraint firstItem="UYq-Cu-Aof" firstAttribute="centerY" secondItem="mkt-xE-8Uu" secondAttribute="centerY" id="z00-8v-SNY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ValueText" destination="UYq-Cu-Aof" id="fge-i3-S8U"/>
+                                    <outlet property="ValueTypeLabel" destination="nOI-KR-uVI" id="chh-uJ-G21"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,6 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ValueText" destination="UYq-Cu-Aof" id="abL-Py-hRY"/>
                         <outlet property="addButton" destination="28b-3J-YFn" id="TgM-vJ-gC2"/>
                         <outlet property="cancelButton" destination="HYJ-j6-Qyi" id="9T9-Q4-QvW"/>
                     </connections>

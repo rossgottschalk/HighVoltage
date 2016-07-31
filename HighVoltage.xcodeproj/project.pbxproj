@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9E90511D4E4B910023FCA9 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E90501D4E4B910023FCA9 /* CustomTableViewCell.m */; };
 		5BAF628E1D4BB8CC0090176A /* ValueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */; };
 		5BCAA32A1D4A837500C50848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA3291D4A837500C50848 /* main.m */; };
 		5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAA32C1D4A837500C50848 /* AppDelegate.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B9E904F1D4E4B910023FCA9 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		5B9E90501D4E4B910023FCA9 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		5BAF628C1D4BB8CC0090176A /* ValueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTableViewController.h; sourceTree = "<group>"; };
 		5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueTableViewController.m; sourceTree = "<group>"; };
 		5BCAA3251D4A837500C50848 /* HighVoltage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighVoltage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +71,8 @@
 				5BCAA32C1D4A837500C50848 /* AppDelegate.m */,
 				5BCAA33F1D4A8A8C00C50848 /* MainTableViewController.h */,
 				5BCAA3401D4A8A8C00C50848 /* MainTableViewController.m */,
+				5B9E904F1D4E4B910023FCA9 /* CustomTableViewCell.h */,
+				5B9E90501D4E4B910023FCA9 /* CustomTableViewCell.m */,
 				5BAF628C1D4BB8CC0090176A /* ValueTableViewController.h */,
 				5BAF628D1D4BB8CC0090176A /* ValueTableViewController.m */,
 				5BCAA3481D4A8F6D00C50848 /* Brain.h */,
@@ -161,6 +166,7 @@
 			files = (
 				5BCAA34A1D4A8F6D00C50848 /* Brain.m in Sources */,
 				5BAF628E1D4BB8CC0090176A /* ValueTableViewController.m in Sources */,
+				5B9E90511D4E4B910023FCA9 /* CustomTableViewCell.m in Sources */,
 				5BCAA3411D4A8A8C00C50848 /* MainTableViewController.m in Sources */,
 				5BCAA32D1D4A837500C50848 /* AppDelegate.m in Sources */,
 				5BCAA32A1D4A837500C50848 /* main.m in Sources */,
