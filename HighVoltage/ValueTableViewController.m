@@ -8,7 +8,11 @@
 
 #import "ValueTableViewController.h"
 
+
+
 @interface ValueTableViewController ()
+
+@property (strong, nonatomic) NSMutableArray *valueTypes;
 
 @end
 
@@ -16,11 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.remainingValueTypes = [[NSMutableArray alloc] init];
-    [self.remainingValueTypes addObject:@"watts"];
-    [self.remainingValueTypes addObject:@"volts"];
-    [self.remainingValueTypes addObject:@"amps"];
-    [self.remainingValueTypes addObject:@"ohms"];
+    self.valueTypes = [[NSMutableArray alloc] init];
+    [self.valueTypes addObject:@"watts"];
+    [self.valueTypes addObject:@"volts"];
+    [self.valueTypes addObject:@"amps"];
+    [self.valueTypes addObject:@"ohms"];
+
+ 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -43,13 +49,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.remainingValueTypes.count;
+    return self.valueTypes.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"valuePopoverCell" forIndexPath:indexPath];
-    NSString *valueTypeNames = self.remainingValueTypes[indexPath.row];
+    NSString *valueTypeNames = self.valueTypes[indexPath.row];
     cell.textLabel.text = valueTypeNames;
     
     

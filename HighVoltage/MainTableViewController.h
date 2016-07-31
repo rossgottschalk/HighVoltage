@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ValueTableDelegate
+
+
+- (void) valueTypeWasChosen: (NSString *) valueTypeChosen;
+
+
+
+@end
+
 @interface MainTableViewController : UITableViewController
 
 

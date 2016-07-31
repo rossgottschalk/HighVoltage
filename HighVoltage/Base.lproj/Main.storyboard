@@ -52,7 +52,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="28b-3J-YFn">
                             <connections>
                                 <action selector="addNewValueTypeButton:" destination="ZYB-fr-EMF" id="1W6-Hm-FJV"/>
-                                <segue destination="EsT-JE-5uc" kind="popoverPresentation" popoverAnchorBarButtonItem="28b-3J-YFn" id="34I-W7-u8J">
+                                <segue destination="EsT-JE-5uc" kind="popoverPresentation" identifier="valueTypePopoverSegue" popoverAnchorBarButtonItem="28b-3J-YFn" id="34I-W7-u8J">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>

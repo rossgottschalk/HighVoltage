@@ -10,11 +10,16 @@
 #import "ValueTableViewController.h"
 
 
-@interface MainTableViewController () <UIPopoverPresentationControllerDelegate>
+@interface MainTableViewController () <UIPopoverPresentationControllerDelegate, ValueTableDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
+@property (strong, nonatomic) NSMutableArray *visibleValueCells;
+@property (strong, nonatomic) NSMutableArray *remainingValueTypes;
+@property (strong, nonatomic) NSMutableArray *valueTypes;
+
 
 
 
@@ -29,6 +34,13 @@
 {
     [super viewDidLoad];
     self.title = @"High Voltage";
+    self.valueTypes = [[NSMutableArray alloc] init];
+    [self.valueTypes addObject:@"watts"];
+    [self.valueTypes addObject:@"volts"];
+    [self.valueTypes addObject:@"amps"];
+    [self.valueTypes addObject:@"ohms"];
+
+   
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -113,9 +125,13 @@
 //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"ValueTypePopoverSegue"])
+    if ([segue.identifier isEqualToString:@"valueTypePopoverSegue"])
     {
-        
+        ValueTableViewController *valueTableVC = [segue destinationViewController];
+        valueTableVC.popoverPresentationController.delegate = self;
+        valueTableVC.delegate = self;
+        int contentHeight = 44.0f * self.valueTypes.count;
+        valueTableVC.preferredContentSize = CGSizeMake(200.0f, contentHeight);
     
         
     }
@@ -129,6 +145,11 @@
     return UIModalPresentationNone;
 }
 
+#pragma mark - ValueTableDelegate
 
+-(void) valueTypeWasChosen:(NSString *)valueTypeChosen
+{
+    
+}
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTableViewController.h"
 
 @interface ValueTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSMutableArray *remainingValueTypes;
+@property (strong, nonatomic) id<ValueTableDelegate> delegate;
+
 
 
 @end
