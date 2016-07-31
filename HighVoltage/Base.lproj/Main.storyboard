@@ -27,8 +27,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYq-Cu-Aof">
-                                            <rect key="frame" x="451" y="7" width="129" height="30"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ValueText" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYq-Cu-Aof">
+                                            <rect key="frame" x="497" y="7" width="83" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                         </textField>
@@ -63,7 +63,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ValueText" destination="UYq-Cu-Aof" id="abL-Py-hRY"/>
                         <outlet property="addButton" destination="28b-3J-YFn" id="TgM-vJ-gC2"/>
                         <outlet property="cancelButton" destination="HYJ-j6-Qyi" id="9T9-Q4-QvW"/>
                     </connections>

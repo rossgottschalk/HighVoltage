@@ -11,6 +11,8 @@
 
 @interface ValueTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *valueTypes;
+
 @property (strong, nonatomic) id<ValueTableDelegate> delegate;
 
 

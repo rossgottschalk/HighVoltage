@@ -11,7 +11,7 @@
 @protocol ValueTableDelegate
 
 
-- (void) valueTypeWasChosen: (NSString *) valueTypeChosen;
+- (void) valueTypeWasChosen: (NSString *) valueTypeName;
 
 
 @end

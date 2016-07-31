@@ -8,6 +8,7 @@
 
 #import "MainTableViewController.h"
 #import "ValueTableViewController.h"
+#import "CustomTableViewCell.h"
 
 
 @interface MainTableViewController () <UIPopoverPresentationControllerDelegate, ValueTableDelegate>
@@ -18,7 +19,7 @@
 
 @property (strong, nonatomic) NSMutableArray *visibleValueCells;
 @property (strong, nonatomic) NSMutableArray *remainingValueTypes;
-@property (strong, nonatomic) NSMutableArray *valueTypes;
+@property (strong, nonatomic) NSDictionary *allValueTypes;
 
 
 
@@ -34,12 +35,9 @@
 {
     [super viewDidLoad];
     self.title = @"High Voltage";
-    self.valueTypes = [[NSMutableArray alloc] init];
-    [self.valueTypes addObject:@"watts"];
-    [self.valueTypes addObject:@"volts"];
-    [self.valueTypes addObject:@"amps"];
-    [self.valueTypes addObject:@"ohms"];
-
+    self.visibleValueCells = [[NSMutableArray alloc] init];
+    self.allValueTypes = @{@"Volts": @"volts (V)", @"Watts": @"watts (W)", @"Amps": @"amps (A)", @"Ohms": @"ohms (Ω)"};
+    self.remainingValueTypes = [[self.allValueTypes allKeys] mutableCopy];
    
     
     // Uncomment the following line to preserve selection between presentations.
@@ -70,16 +68,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.visibleValueCells.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueTypeCell" forIndexPath:indexPath];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueTypeCell" forIndexPath:indexPath];
+    
     
     
     // Configure the cell...
+    
+    [cell.ValueText becomeFirstResponder];
+
+    NSString *valueNameKey = self.visibleValueCells [indexPath.row];
+    NSString *valueNameValue = [self.allValueTypes objectForKey:valueNameKey];
+    
+    cell.ValueTypeLabel.text = valueNameKey;
+    cell.ValueText.placeholder = valueNameValue;
+    
     //cell.textLabel.text = @"Hi Daniel";
     
     return cell;
@@ -128,12 +136,12 @@
     if ([segue.identifier isEqualToString:@"valueTypePopoverSegue"])
     {
         ValueTableViewController *valueTableVC = [segue destinationViewController];
+        valueTableVC.valueTypes = self.remainingValueTypes;
+        //this sends "remainingValueTypes over to valueTypes in the valueTableVC
         valueTableVC.popoverPresentationController.delegate = self;
         valueTableVC.delegate = self;
-        int contentHeight = 44.0f * self.valueTypes.count;
+        int contentHeight = 44.0f * self.allValueTypes.count;
         valueTableVC.preferredContentSize = CGSizeMake(200.0f, contentHeight);
-    
-        
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -147,8 +155,12 @@
 
 #pragma mark - ValueTableDelegate
 
--(void) valueTypeWasChosen:(NSString *)valueTypeChosen
+-(void) valueTypeWasChosen:(NSString *)valueTypeName
 {
+    [self.visibleValueCells addObject:valueTypeName];
+    [self.remainingValueTypes removeObject:valueTypeName];
+    [self.tableView reloadData];
+    
     
 }
 

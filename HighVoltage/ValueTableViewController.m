@@ -12,33 +12,23 @@
 
 @interface ValueTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *valueTypes;
+
 
 @end
 
 @implementation ValueTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    self.valueTypes = [[NSMutableArray alloc] init];
-    [self.valueTypes addObject:@"watts"];
-    [self.valueTypes addObject:@"volts"];
-    [self.valueTypes addObject:@"amps"];
-    [self.valueTypes addObject:@"ohms"];
-
- 
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -55,8 +45,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"valuePopoverCell" forIndexPath:indexPath];
-    NSString *valueTypeNames = self.valueTypes[indexPath.row];
-    cell.textLabel.text = valueTypeNames;
+    NSString *valueTypeName = self.valueTypes[indexPath.row];
+    cell.textLabel.text = valueTypeName;
     
     
     // Configure the cell...
@@ -70,6 +60,10 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     //this deselects the row selected. AKA turns off the highlight
+    
+    NSString *valueTypeName = self.valueTypes[indexPath.row];
+    [self.delegate valueTypeWasChosen:valueTypeName];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     //make the popover vc disappear
 }
