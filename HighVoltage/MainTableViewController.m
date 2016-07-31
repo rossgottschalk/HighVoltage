@@ -17,12 +17,11 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
+
 @property (strong, nonatomic) NSMutableArray *visibleValueCells;
 @property (strong, nonatomic) NSMutableArray *remainingValueTypes;
+
 @property (strong, nonatomic) NSDictionary *allValueTypes;
-
-
-
 
 
 
@@ -38,33 +37,79 @@
     self.visibleValueCells = [[NSMutableArray alloc] init];
     self.allValueTypes = @{@"Volts": @"volts (V)", @"Watts": @"watts (W)", @"Amps": @"amps (A)", @"Ohms": @"ohms (Ω)"};
     self.remainingValueTypes = [[self.allValueTypes allKeys] mutableCopy];
-   
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+#pragma mark - Navigation
+//In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"valueTypePopoverSegue"])
+    {
+        ValueTableViewController *valueTableVC = [segue destinationViewController];
+        valueTableVC.valueTypes = self.remainingValueTypes;
+        //this sends "remainingValueTypes over to valueTypes array declared in ValueTable...h
+        valueTableVC.popoverPresentationController.delegate = self;
+        valueTableVC.delegate = self;
+        
+        
+        int contentHeight = 44.0f * self.allValueTypes.count;
+        valueTableVC.preferredContentSize = CGSizeMake(200.0f, contentHeight);
+    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+
+
+
+
+#pragma mark - UIPopoverPresentationController delegate
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
+{
+    return UIModalPresentationNone;
+}
+
+
+
+
+#pragma mark - ValueTableDelegate
+
+-(void) valueTypeWasChosen:(NSString *)valueTypeName
+{
+    [self.visibleValueCells addObject:valueTypeName];
+    [self.remainingValueTypes removeObject:valueTypeName];
+    [self.tableView reloadData];
+}
+
+
+
+
 #pragma mark - Action Handlers
 //- (IBAction)addNewValueTypeButton:(UIBarButtonItem *)sender
 //{
-    //[self.valueTypes addObject:@"Hi Tyler"];
-    //[self.tableView reloadData];
+//[self.valueTypes addObject:@"Hi Tyler"];
+//[self.tableView reloadData];
 //}
 
-#pragma mark - Table view data source
 
+
+
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -75,7 +120,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ValueTypeCell" forIndexPath:indexPath];
-    
+    ///////using our custom cell titled CustomTableViewCell
     
     
     // Configure the cell...
@@ -83,15 +128,19 @@
     [cell.ValueText becomeFirstResponder];
 
     NSString *valueNameKey = self.visibleValueCells [indexPath.row];
+    ///creating a string for the Key in the dictionary
+    
     NSString *valueNameValue = [self.allValueTypes objectForKey:valueNameKey];
+    ///creating string fro the value of the dictionary
     
     cell.ValueTypeLabel.text = valueNameKey;
     cell.ValueText.placeholder = valueNameValue;
     
-    //cell.textLabel.text = @"Hi Daniel";
     
     return cell;
 }
+
+
 
 
 /*
@@ -129,39 +178,5 @@
 */
 
 
-#pragma mark - Navigation
-//In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"valueTypePopoverSegue"])
-    {
-        ValueTableViewController *valueTableVC = [segue destinationViewController];
-        valueTableVC.valueTypes = self.remainingValueTypes;
-        //this sends "remainingValueTypes over to valueTypes in the valueTableVC
-        valueTableVC.popoverPresentationController.delegate = self;
-        valueTableVC.delegate = self;
-        int contentHeight = 44.0f * self.allValueTypes.count;
-        valueTableVC.preferredContentSize = CGSizeMake(200.0f, contentHeight);
-    }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
-#pragma mark - UIPopoverPresentationController delegate
-- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
-{
-    return UIModalPresentationNone;
-}
-
-#pragma mark - ValueTableDelegate
-
--(void) valueTypeWasChosen:(NSString *)valueTypeName
-{
-    [self.visibleValueCells addObject:valueTypeName];
-    [self.remainingValueTypes removeObject:valueTypeName];
-    [self.tableView reloadData];
-    
-    
-}
 
 @end

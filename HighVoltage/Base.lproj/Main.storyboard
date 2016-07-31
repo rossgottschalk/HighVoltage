@@ -52,7 +52,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0DP-OB-pOA">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="HYJ-j6-Qyi"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="HYJ-j6-Qyi">
+                            <connections>
+                                <action selector="clearButton:" destination="ZYB-fr-EMF" id="T7e-Xf-jeV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="28b-3J-YFn">
                             <connections>
                                 <action selector="addNewValueTypeButton:" destination="ZYB-fr-EMF" id="1W6-Hm-FJV"/>
